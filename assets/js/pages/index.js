@@ -1,22 +1,18 @@
+var select = [
+    { value: "./reviews.html", label: "reviews" },
+    { value: "./marketplace.html", label: "marketplace" },
+    { value: "./utils.html", label: "utils" },
+]
+
 //region functions
 function containerSelectUpdate() {
-    let select = [
-        "reviews",
-
-    ];
-
     select.forEach(function (item) {
-        $(".selecter").append(`<div class="selecter-select unselect"><span>` + item + `</span></div>`);
+        $(".selecter").append(`<div class="selecter-select unselect"><span>` + item.label + `</span></div>`);
     });
-
-    $("#container").append(select);
 }
 
 //region listiners
 $(".selecter").on("click", ".selecter-select", function () {
-    let select = [
-        { value: "./reviews.html", label: "reviews" },
-    ];
     let label = $(this).find("span").html();
     select.forEach(function (item) {
         console.log(label, ' = ', item.label);

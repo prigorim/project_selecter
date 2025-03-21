@@ -1,10 +1,11 @@
 /* region imports */
 @import "./constants.css";
 @import "../elements/header.css";
-@import "../elements/selecter.css";
 @import "../elements/footer.css";
 @import "../pages/index.css";
 @import "../pages/reviews.css";
+@import "../pages/marketplace.css";
+@import "../pages/utils.css";
 
 /* endregion imports */
 

@@ -6,12 +6,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 
 .selecter-select {
     display: flex;
-    justify-content: center;
-    width: 30%;
+    justify-content: flex-start;
+    align-items: center;
+    width: 130px;
     margin: var(--element-margin);
     padding: var(--element-padding);
     font-size: var(--font-size-medium);
@@ -19,7 +21,12 @@
     /* border: 1px solid var(--color-main-text); */
     border-radius: var(--element-border-radius);
     transition: 0.3s;
-
+    
+    img {
+        padding-right: var(--element-margin);
+        width: 20px;
+        height: 20px;
+    }
 }
 
 .selecter-select.dark {
