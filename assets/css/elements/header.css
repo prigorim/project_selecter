@@ -1,0 +1,52 @@
+.header {
+    background-color: var(--color-main);
+    display: flex;
+    flex-direction: row;
+    height: calc(var(--element-height) + var(--element-margin) * 2);
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    transition: 1s;
+}
+
+.header.dark {
+    background-color: var(--color-main-dark);
+}
+
+.header-logo {
+    width: var(--element-width);
+    height: var(--element-height);
+    margin-left: var(--element-margin);
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.header-title {
+    padding-left: var(--element-padding);
+    color: var(--color-main-text-dark);
+    font-weight: bold;
+    font-size: var(--font-size-large);
+}
+
+.header-theme {
+    margin-left: auto;
+    margin-right: var(--element-margin);
+    width: var(--element-width);
+    height: var(--element-height);
+}
+
+.header-theme-switcher {
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-image: url("../../img/sun.png");
+    cursor: pointer;
+    transition: 1s;
+}
+
+.header-theme-switcher.dark {
+    background-image: url("../../img/moon.png");
+}

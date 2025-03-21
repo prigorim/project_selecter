@@ -1,0 +1,28 @@
+/* region imports */
+@import "./constants.css";
+@import "./elements/header.css";
+@import "./elements/selecter.css";
+@import "./elements/footer.css";
+/* endregion imports */
+
+/* region base */
+@viewport {
+  user-zoom: fixed;
+}
+
+body {
+  font-family: var(--main-font);
+  display: flex;
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-background);
+  color: var(--color-main-text);
+  transition: 1s;
+}
+
+body.dark {
+  background-color: var(--color-background-dark);
+  color: var(--color-main-text-dark);
+}
+
+/* endregion base */

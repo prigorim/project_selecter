@@ -1,0 +1,13 @@
+.footer {
+    position: fixed !important;
+    z-index: 10;
+    bottom: 0;
+    width: 100%;
+    background-color: var( --color-main);
+    color: var( --color-main);
+}
+
+.footer.dark {
+    background-color: var( --color-main-dark);
+    color: var( --color-main-text);
+}

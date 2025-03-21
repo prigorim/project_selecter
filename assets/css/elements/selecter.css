@@ -1,0 +1,27 @@
+.selecter {
+    position: fixed;
+    margin-top: calc(var(--element-height) + var(--element-margin) * 2);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.selecter-select {
+    display: flex;
+    justify-content: center;
+    width: 30%;
+    margin: var(--element-margin);
+    padding: var(--element-padding);
+    font-size: var(--font-size-medium);
+    cursor: pointer;
+    border: 1px solid var(--color-main-text);
+    border-radius: var(--element-border-radius);
+    transition: 1s;
+
+}
+
+.selecter-select.dark {
+    border: 1px solid var(--color-main-text-dark);
+}

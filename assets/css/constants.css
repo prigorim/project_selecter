@@ -1,0 +1,35 @@
+/* region fonts */
+@font-face {
+    font-family: "Pharm Roboto";
+    src: url("./fonts/Roboto-Light.ttf") format("ttf");
+}
+
+/* endregion fonts */
+
+/* region constants */
+:root {
+    --main-font: "Pharm Roboto";
+
+    --color-background: #ffffff;
+    --color-background-dark: #333333;
+    --color-main: #05753e;
+    --color-main-dark: #022b17;
+    --color-main-text: #333333;
+    --color-main-text-dark: #fafafa;
+    --color-alt-first: #00aeef;
+    --color-alt-first-dark: #012938;
+    --color-alt-second: #37a1ce;
+    --color-alt-second-dark: #0f2c38;
+
+    --element-width: 30px;
+    --element-height: 30px;
+    --element-margin: 4px;
+    --element-padding: 4px;
+    --element-border-radius: 16px;
+
+    --font-size-small: 14px;
+    --font-size-medium: 20px;
+    --font-size-large: 26px;
+}
+
+/* endregion constants */
