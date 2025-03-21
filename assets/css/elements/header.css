@@ -6,7 +6,7 @@
     align-items: center;
     width: 100%;
     position: fixed;
-    transition: 1s;
+    transition: 0.3s;
 }
 
 .header.dark {
@@ -44,7 +44,7 @@
     background-size: contain;
     background-image: url("../../img/sun.png");
     cursor: pointer;
-    transition: 1s;
+    transition: 0.3s;
 }
 
 .header-theme-switcher.dark {

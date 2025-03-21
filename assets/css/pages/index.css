@@ -18,7 +18,7 @@
     cursor: pointer;
     /* border: 1px solid var(--color-main-text); */
     border-radius: var(--element-border-radius);
-    transition: 1s;
+    transition: 0.3s;
 
 }
 

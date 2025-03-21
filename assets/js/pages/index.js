@@ -6,7 +6,7 @@ function containerSelectUpdate() {
     ];
 
     select.forEach(function (item) {
-        $(".selecter").append(`<div class="selecter-select"><span>` + item + `</span></div>`);
+        $(".selecter").append(`<div class="selecter-select unselect"><span>` + item + `</span></div>`);
     });
 
     $("#container").append(select);
@@ -15,12 +15,12 @@ function containerSelectUpdate() {
 //region listiners
 $(".selecter").on("click", ".selecter-select", function () {
     let select = [
-        { value: "./pages/reviews.html", label: "reviews" },
+        { value: "./reviews.html", label: "reviews" },
     ];
     let label = $(this).find("span").html();
     select.forEach(function (item) {
         console.log(label, ' = ', item.label);
-        item.label === label ? window.open(item.value, '_blank') : null;
+        item.label === label ? window.open(item.value, '_self') : null;
     });
 });
 

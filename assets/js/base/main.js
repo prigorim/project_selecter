@@ -23,6 +23,10 @@ $(".header-theme").on("click", function () {
   theme != "dark" ? localStorage.setItem("themeFarmHelper", "dark") : localStorage.setItem("themeFarmHelper", "light");
 });
 
+$(".header-logo").on("click", function () {
+  window.open("./index.html", "_self");
+});
+
 //region ready
 $(document).ready(function () {
   theme = getLocalStorageTheme();

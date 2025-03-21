@@ -1,9 +1,11 @@
 /* region imports */
 @import "./constants.css";
-@import "./elements/header.css";
-@import "./elements/selecter.css";
-@import "./elements/reviews.css";
-@import "./elements/footer.css";
+@import "../elements/header.css";
+@import "../elements/selecter.css";
+@import "../elements/footer.css";
+@import "../pages/index.css";
+@import "../pages/reviews.css";
+
 /* endregion imports */
 
 /* region base */
@@ -18,7 +20,7 @@ body {
   padding: 0;
   background-color: var(--color-background);
   color: var(--color-main-text);
-  transition: 1s;
+  transition: 0.3s;
 }
 
 body.dark {

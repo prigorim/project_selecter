@@ -9,7 +9,7 @@
 
 .copy-text {
     color: var(--color-main-text);
-    transition: 1s;
+    transition: 0.3s;
 }
 
 .copy-text.dark {
