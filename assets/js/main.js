@@ -14,6 +14,7 @@ function themeSwitcher() {
   $(".header-theme-switcher").toggleClass("dark");
   $(".footer").toggleClass("dark");
   $(".selecter-select").toggleClass("dark");
+  $(".copy-text").toggleClass("dark");
 }
 
 //region listiners
@@ -25,6 +26,5 @@ $(".header-theme").on("click", function () {
 //region ready
 $(document).ready(function () {
   theme = getLocalStorageTheme();
-  containerSelectUpdate();
   theme === "dark" ? themeSwitcher() : null;
 });

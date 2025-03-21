@@ -2,6 +2,7 @@
 @import "./constants.css";
 @import "./elements/header.css";
 @import "./elements/selecter.css";
+@import "./elements/reviews.css";
 @import "./elements/footer.css";
 /* endregion imports */
 
@@ -23,6 +24,18 @@ body {
 body.dark {
   background-color: var(--color-background-dark);
   color: var(--color-main-text-dark);
+}
+
+.unselect {
+  user-select: none;
+}
+
+.invisible {
+  display: none;
+}
+
+.pointer {
+  cursor: pointer;
 }
 
 /* endregion base */

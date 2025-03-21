@@ -1,7 +1,7 @@
 /* region fonts */
 @font-face {
     font-family: "Pharm Roboto";
-    src: url("./fonts/Roboto-Light.ttf") format("ttf");
+    src: url("./fonts/Roboto-Light.ttf") format("truetype");
 }
 
 /* endregion fonts */

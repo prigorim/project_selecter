@@ -23,3 +23,7 @@ $(".selecter").on("click", ".selecter-select", function () {
         item.label === label ? window.open(item.value, '_blank') : null;
     });
 });
+
+$(document).ready(function () {
+    containerSelectUpdate();
+});

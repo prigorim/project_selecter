@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<!-- заголовок -->
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>reviews</title>
+    <script src="../assets/js/lib/jquery.min.js"></script>
+    <script src="../assets/js/lib/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <link rel="icon" href="../assets/img/icon.png" type="image/png" />
+</head>
+
+<!-- тело -->
+
+<body>
+    <div class="header">
+        <div class="header-logo">
+            <img src="../assets/img/logo.png" alt="Logo" />
+        </div>
+        <div class="header-title">
+            <span>reviews</span>
+        </div>
+        <div class="header-theme">
+            <div class="header-theme-switcher"></div>
+        </div>
+    </div>
+
+    <div id="copy" class="copy" style="display: none;">
+        <div class="copy-text unselect">Скопировано</div>
+    </div>
+    <div class="selecter">
+        <div class="container">
+            <div class="container-logo">
+                <a href="https://www.pharmeconom.ru/">
+                    <img class="pointer" src="../assets/img/logo.svg" alt="logo" />
+                </a>
+            </div>
+            <div class="container-header unselect">
+                Создай уникальный ответ на отзыв в магазине приложений
+            </div>
+            <div class="container-content">
+                <textarea title="review" id="area" rows="3"> </textarea>
+            </div>
+            <div class="container-footer">
+                <div class="container-footer-checkboxes">
+                    <label>
+                        <span class="unselect pointer">Негативный</span>
+                        <input class="pointer" type="checkbox" id="negative" />
+                    </label>
+                    <label class="unselect pointer">
+                        <span>Закрывашка</span>
+                        <input class="pointer" type="checkbox" id="ender" />
+                    </label>
+                </div>
+                <div class="container-footer-navigation">
+                    <div class="container-footer-copy unselect pointer">
+                        ©
+                    </div>
+                    <div class="container-footer-button unselect pointer">
+                        Создать
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer" style="display: none;">
+    </div>
+</body>
+
+<!-- скрипты -->
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/pages/reviews.js"></script>
+
+</html>
