@@ -13,7 +13,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    width: 130px;
+    width: 170px;
     margin: var(--element-margin);
     padding: var(--element-padding);
     font-size: var(--font-size-medium);
@@ -26,6 +26,10 @@
         padding-right: var(--element-margin);
         width: 20px;
         height: 20px;
+    }
+
+    span {
+        white-space: nowrap;
     }
 }
 

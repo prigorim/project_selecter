@@ -2,6 +2,7 @@ var select = [
     { value: "./reviews.html", label: "reviews" },
     { value: "./marketplace.html", label: "marketplace" },
     { value: "./utils.html", label: "utils" },
+    { value: "./docs.html", label: "docs" },
 ]
 
 //region functions
