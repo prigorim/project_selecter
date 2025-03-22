@@ -5,6 +5,15 @@
     width: 100%;
     background-color: var( --color-main);
     color: var( --color-main);
+    display: flex;
+    justify-content: space-evenly;
+
+    span {
+        font-size: var(--font-size-small);
+        color: var(--color-main-text-dark);
+        padding: var(--element-padding);
+    }
+
 }
 
 .footer.dark {

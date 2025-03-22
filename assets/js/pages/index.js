@@ -16,7 +16,6 @@ function containerSelectUpdate() {
 $(".selecter").on("click", ".selecter-select", function () {
     let label = $(this).find("span").html();
     select.forEach(function (item) {
-        console.log(label, ' = ', item.label);
         item.label === label ? window.open(item.value, '_self') : null;
     });
 });
