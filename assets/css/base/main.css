@@ -1,0 +1,45 @@
+/* region imports */
+@import "./constants.css";
+@import "../elements/header.css";
+@import "../elements/footer.css";
+@import "../pages/index.css";
+@import "../pages/reviews.css";
+@import "../pages/marketplace.css";
+@import "../pages/utils.css";
+@import "../pages/docs.css";
+
+/* endregion imports */
+
+/* region base */
+@viewport {
+  user-zoom: fixed;
+}
+
+body {
+  font-family: var(--main-font);
+  display: flex;
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-background);
+  color: var(--color-main-text);
+  transition: 0.3s;
+}
+
+body.dark {
+  background-color: var(--color-background-dark);
+  color: var(--color-main-text-dark);
+}
+
+.unselect {
+  user-select: none;
+}
+
+.invisible {
+  display: none;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+/* endregion base */
