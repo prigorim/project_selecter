@@ -6,6 +6,8 @@ var select = [
     { value: "https://www.zabbix.com/ru", label: "Zabbix" },
     { value: "https://mail.google.com/", label: "Mail" },
     { value: "https://planfix.ru/", label: "Planfix" },
+    { value: "https://gitlab.com/pharmgarant.ru", label: "GitLAB" },
+    { value: "https://github.com/prigorim?tab=repositories", label: "GitHUB" },
 ]
 
 function containerSelectUpdate() {
