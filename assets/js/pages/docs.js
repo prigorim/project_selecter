@@ -14,11 +14,17 @@ function containerSelectUpdate() {
 }
 
 //region listiners
-$(".selecter").on("click", ".selecter-select", function () {
+$(".selecter").on("click auxclick", ".selecter-select", function (e) {
     let label = $(this).find("span").html();
     select.forEach(function (item) {
-        console.log(label, ' = ', item.label);
-        item.label === label ? window.open(item.value, '_blank') : null;
+        switch (e.which) {
+            case 1:
+                item.label === label ? window.open(item.value, '_self') : null;
+                break;
+            case 2:
+                item.label === label ? window.open(item.value, '_blank') : null;
+                break;
+        }
     });
 });
 
