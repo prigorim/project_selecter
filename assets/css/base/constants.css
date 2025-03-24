@@ -16,6 +16,7 @@
     --color-main-dark: #022b17;
     --color-main-text: #333333;
     --color-main-text-dark: #fafafa;
+    --color-scrollbar: #666666;
     --color-alt-first: #00aeef;
     --color-alt-first-dark: #012938;
     --color-alt-second: #37a1ce;
@@ -30,6 +31,10 @@
     --font-size-small: 14px;
     --font-size-medium: 20px;
     --font-size-large: 26px;
+
+    --api-padding-left-1: 10px;
+    --api-padding-left-2: 20px;
+    --api-padding-left-3: 30px;
 }
 
 /* endregion constants */

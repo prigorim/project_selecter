@@ -1,9 +1,11 @@
 var select = [
-    { value: "https://consumer.huawei.com/ru/mobileservices/appgallery/", label: "AppGallery" },
-    { value: "https://developer.apple.com/", label: "App Store" },
-    { value: "https://global.app.mi.com/", label: "GetApps" },
-    { value: "https://play.google.com/console/", label: "PlayMarket" },
-    { value: "https://galaxystore.ru/", label: "Samsung Store" },
+    { value: "https://developer.huawei.com/consumer/ru/service/josp/agc/index.html#/myApp/106832257/v1646299582344226048", label: "AppGallery" },
+    { value: "https://appstoreconnect.apple.com/apps/1478551285/distribution/ios", label: "App Store" },
+    { value: "https://global.developer.mi.com/distribute/app/list", label: "GetApps" },
+    { value: "https://play.google.com/console/u/1/developers/7994947562696594600/app/4973903313446474675/app-dashboard?timespan=thirtyDays", label: "PlayMarket" },
+    { value: "https://seller.samsungapps.com/content/common/summaryContentList.as", label: "Samsung Store" },
+    { value: "https://console.rustore.ru/apps/2063570438", label: "RuStore" },
+
 ]
 
 function containerSelectUpdate() {

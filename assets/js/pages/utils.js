@@ -1,12 +1,12 @@
 var select = [
-    { value: "https://expo.dev/", label: "Expo" },
-    { value: "https://developer.apple.com/", label: "AppMetrica" },
-    { value: "https://firebase.google.com/", label: "Firebase" },
+    { value: "https://expo.dev/accounts/pharmeconom/projects/pharmprod/builds", label: "Expo" },
+    { value: "https://appmetrica.yandex.ru/overview?period=today&group=dekaminute&currency=rub&accuracy=medium&appId=4280308", label: "AppMetrica" },
+    { value: "https://console.firebase.google.com/u/1/project/pharmeconom-mobile-app/settings/general/ios:ru.pharmeconom.app?pli=1", label: "Firebase" },
     { value: "https://habr.com/ru/articles/464261/", label: "API" },
-    { value: "https://www.zabbix.com/ru", label: "Zabbix" },
-    { value: "https://mail.google.com/", label: "Mail" },
-    { value: "https://planfix.ru/", label: "Planfix" },
-    { value: "https://gitlab.com/pharmgarant.ru", label: "GitLAB" },
+    { value: "http://10.0.5.15/zabbix.php?action=charts.view&filter_hostids%5B%5D=11804&filter_set=1", label: "Zabbix" },
+    { value: "https://mail.google.com/mail/u/1/#inbox", label: "Mail" },
+    { value: "https://pharmeconom.planfix.ru/?action=tasks&filter=:in", label: "Planfix" },
+    { value: "https://gitlab.com/users/pharmgarant.ru/projects", label: "GitLAB" },
     { value: "https://github.com/prigorim?tab=repositories", label: "GitHUB" },
 ]
 

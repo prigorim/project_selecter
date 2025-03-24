@@ -11,8 +11,8 @@ function updateFooter() {
   let info = [
     { label: "Developer", content: "Чернышев Евгений" },
     { label: "Company", content: "ФАРМЭКОНОМ" },
-    { label: "Version", content: "3.4" },
-    { label: "Date update", content: "22.03.2025" },
+    { label: "Version", content: "3.5" },
+    { label: "Date update", content: "24.03.2025" },
   ];
 
   info.forEach(function (item) {
@@ -28,6 +28,8 @@ function themeSwitcher() {
   $(".footer").toggleClass("dark");
   $(".selecter-select").toggleClass("dark");
   $(".copy-text").toggleClass("dark");
+  $(".navi").toggleClass("dark");
+  $(".navi").find("a").toggleClass("dark");
 }
 
 //region listiners

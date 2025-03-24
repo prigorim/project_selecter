@@ -1,0 +1,113 @@
+.wrapper {
+    position: absolute;
+    top: calc(var(--element-height) + var(--element-margin) * 2);
+    z-index: 1;
+    font-size: 14px;
+    width: 100%;
+}
+
+.container_api {
+    display: flex;
+    flex-direction: row;
+}
+
+.navi {
+    width: 20%;
+    overflow: auto;
+    height: calc(100vh - 46px);
+    word-break: break-word;
+    padding-top: var(--element-margin);
+    padding-bottom: var(--element-margin);
+    /* border-right: 1px solid var(--color-main-text); */
+
+    span {
+        font-size: var(--font-size-medium);
+        font-weight: bold;
+    }
+
+    ul {
+        margin: 0 auto;
+    }
+
+    li {
+        padding-right: var(--element-margin);
+
+        a {
+            text-decoration: none;
+            color: var(--color-main-text);
+        }
+
+        a.dark {
+            color: var(--color-main-text-dark);
+        }
+    }
+
+}
+
+.navi.dark {
+    /* border-right: 1px solid var(--color-main-text-dark); */
+}
+
+.content_area {
+    padding-left: var(--element-padding);
+    overflow: auto;
+    height: calc(100vh - 46px);
+    flex: 1;
+}
+
+.header_area {
+    h1 {
+        margin-top: var(--element-margin);
+        margin-bottom: 0;
+    }
+
+    p {
+        margin-top: var(--element-margin);
+        margin-bottom: 0;
+    }
+}
+
+.method_item {
+    h2 {
+        margin-top: calc(var(--element-margin) * 2);
+        margin-bottom: 0;
+    }
+}
+
+.method_description {
+    padding-left: var(--api-padding-left-1);
+}
+
+.func_list {
+    margin-top: var(--element-margin);
+    margin-bottom: 0;
+}
+
+.func_name {
+    font-size: 18px;
+    font-weight: bold;
+    padding: var(--element-padding);
+}
+
+.func_description {
+    padding-left: var(--api-padding-left-1);
+    padding: var(--element-padding);
+}
+
+.func_request_link {
+    padding: var(--element-padding);
+}
+
+.func_request_params {
+    padding: var(--element-padding);
+    padding-left: var(--api-padding-left-1);
+}
+
+.func_response {
+    padding: var(--element-padding);
+    padding-left: var(--api-padding-left-2);
+}
+
+.func_response_second {
+    padding-left: var(--api-padding-left-3);
+}

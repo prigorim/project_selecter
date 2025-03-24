@@ -1,0 +1,2428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Api документация</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="../assets/js/lib/jquery.min.js"></script>
+    <script src="../assets/js/lib/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="../assets/css/base/main.css" />
+    <link rel="icon" href="../assets/img/icon.png" type="image/png" />
+    <!-- <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-flex-wrap: wrap;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            -webkit-box-pack: justify;
+            -webkit-justify-content: space-between;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+        }
+
+        .navi {
+            width: 17%;
+            position: fixed;
+            overflow: auto;
+            box-sizing: border-box;
+            border-right: 2px solid #000;
+            height: 100%;
+        }
+
+        .content_area {
+            width: 70%;
+            padding-left: 18%;
+        }
+
+        .method_description {
+            margin-bottom: 20px;
+        }
+
+        .func_name {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            border-top: 1px dashed #000;
+            padding-top: 10px;
+        }
+
+        .func_wrapper {
+            margin-bottom: 20px;
+        }
+
+        .method_item {
+            border-top: 2px solid #000;
+            border-bottom: 2px solid #000;
+        }
+
+        .func_request_params {
+            margin-top: 10px;
+        }
+
+        .func_request_params:before {
+            content: "Параметры запроса:";
+            text-decoration: underline;
+        }
+
+        .func_response:before {
+            content: "Параметры ответа:";
+            text-decoration: underline;
+        }
+
+        .alert {
+            background: red;
+            display: inline-block;
+            padding: 2px;
+            color: #fff;
+        }
+    </style> -->
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-logo pointer">
+            <img src="../assets/img/logo.png" alt="Logo" />
+        </div>
+        <div class="header-title pointer unselect">
+            <span>api</span>
+        </div>
+        <div class="header-theme">
+            <div class="header-theme-switcher"></div>
+        </div>
+    </div>
+    <div class="wrapper">
+        <div class="container_api">
+            <div class="navi">
+                <span>Ссылки на методы</span>
+                <ul>
+                    <li>
+                        <a href="#basket">basket</a>
+                        <ul>
+                            <li><a href="#basket_get">get</a></li>
+                            <li><a href="#basket_add">add</a></li>
+                            <li><a href="#basket_del">del</a></li>
+                            <li><a href="#basket_getSmall">getSmall</a></li>
+                            <li><a href="#basket_update">update</a></li>
+                            <li><a href="#basket_addArray">addArray</a></li>
+                            <li><a href="#basket_getPriceByItems">getPriceByItems</a></li>
+                            <li><a href="#basket_getItemsFor1Rub">getItemsFor1Rub</a></li>
+                            <li><a href="#basket_getFavorite">getFavorite</a></li>
+                            <li><a href="#basket_addFavorite">addFavorite</a></li>
+                            <li><a href="#basket_removeFavToBasket">removeFavToBasket</a></li>
+                            <li><a href="#basket_delFavorite">delFavorite</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#city">city</a>
+                        <ul>
+                            <li><a href="#city_get">get</a></li>
+                            <li><a href="#city_getList">getList</a></li>
+                            <li><a href="#city_getList2">getList2</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#favorite">favorite</a>
+                        <ul>
+                            <li><a href="#favorite_delStore">delStore</a></li>
+                            <li><a href="#favorite_addStore">addStore</a></li>
+                            <li><a href="#favorite_getStores">getStores</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#push">push</a>
+                        <ul>
+                            <li><a href="#push_AddToken">AddToken</a></li>
+                            <li><a href="#push_RemoveToken">RemoveToken</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#help">help</a>
+                        <ul>
+                            <li><a href="#help_getFaq">getFaq</a></li>
+                            <li><a href="#help_getAgreementsList">getAgreementsList</a></li>
+                            <li><a href="#help_getAgreement">getAgreement</a></li>
+                            <li><a href="#help_getContentHowToOrder">getContentHowToOrder</a></li>
+                            <li><a href="#help_getContentAbout">getContentAbout</a></li>
+                            <li><a href="#help_getContentBanner">getContentBanner</a></li>
+                            <li><a href="#help_getContentPaymentAndReceiptOrder">getContentPaymentAndReceiptOrder</a>
+                            </li>
+                            <li><a href="#help_postQuestionPharmacist">postQuestionPharmacist</a></li>
+                            <li><a href="#help_postRequestCallback">postRequestCallback</a></li>
+                            <li><a href="#help_getSupport">getSupport</a></li>
+                            <li><a href="#help_getBanners">getBanners</a></li>
+                            <li><a href="#help_getBanners2">getBanners2</a></li>
+                            <li><a href="#help_getArticlesList">getArticlesList</a></li>
+                            <li><a href="#help_getNotifications">getNotifications</a></li>
+                            <li><a href="#help_getArticle">getArticle</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#user">user</a>
+                        <ul>
+                            <li><a href="#user_changePhone">changePhone</a></li>
+                            <li><a href="#user_sendCodeChangePhone">sendCodeChangePhone</a></li>
+                            <li><a href="#user_sendCodeRecoveryPassword">sendCodeRecoveryPassword</a></li>
+                            <li><a href="#user_recoveryPassword">recoveryPassword</a></li>
+                            <li><a href="#user_sendCodeRegister">sendCodeRegister</a></li>
+                            <li><a href="#user_CheckReg">CheckReg</a></li>
+                            <li><a href="#user_register">register</a></li>
+                            <li><a href="#user_authorization">authorization</a></li>
+                            <li><a href="#user_update">update</a></li>
+                            <li><a href="#user_get">get</a></li>
+                            <li><a href="#user_getGroupPolicy">getGroupPolicy</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#store">store</a>
+                        <ul>
+                            <li><a href="#store_getListAll">getListAll</a></li>
+                            <li><a href="#store_getListInCity">getListInCity</a></li>
+                            <li><a href="#store_get">get</a></li>
+                            <li><a href="#store_getArray">getArray</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#secret">secret</a>
+                        <ul>
+                            <li><a href="#secret_getDiscounts">getDiscounts</a></li>
+                            <li><a
+                                    href="#secret_sendMessageOrderAvailabilityChanged">sendMessageOrderAvailabilityChanged</a>
+                            </li>
+                            <li><a href="#secret_sendMessageOrderPartIsReady">sendMessageOrderPartIsReady</a></li>
+                            <li><a href="#secret_sendMessageClient">sendMessageClient</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#search">search</a>
+                        <ul>
+                            <li><a href="#search_getSearchHints">getSearchHints</a></li>
+                            <li><a href="#search_getDetail">getDetail</a></li>
+                            <li><a href="#search_get">get</a></li>
+                            <li><a href="#search_getStoresByFilter">getStoresByFilter</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#order">order</a>
+                        <ul>
+                            <li><a href="#order_addForOrderDeliveryCourier">addForOrderDeliveryCourier</a></li>
+                            <li><a href="#order_addFor2Orders">addFor2Orders</a></li>
+                            <li><a href="#order_add">add</a></li>
+                            <li><a href="#order_getDataItemsBy2Orders">getDataItemsBy2Orders</a></li>
+                            <li><a href="#order_getDateIsReadyStores">getDateIsReadyStores</a></li>
+                            <li><a href="#order_repeat">repeat</a></li>
+                            <li><a href="#order_getReasonsCancel">getReasonsCancel</a></li>
+                            <li><a href="#order_cancel">cancel</a></li>
+                            <li><a href="#order_get">get</a></li>
+                            <li><a href="#order_getDetail">getDetail</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#catalog">catalog</a>
+                        <ul>
+                            <li><a href="#catalog_getSet">getSet</a></li>
+                            <li><a href="#catalog_getSetsList">getSetsList</a></li>
+                            <li><a href="#catalog_getSectionList">getSectionList</a></li>
+                            <li><a href="#catalog_getAvailableItemInStores">getAvailableItemInStores</a></li>
+                            <li><a href="#catalog_getElement">getElement</a></li>
+                            <li><a href="#catalog_getElementTest">getElementTest</a></li>
+                            <li><a href="#catalog_getRecommendByIdItem">getRecommendByIdItem</a></li>
+                            <li><a href="#catalog_getSection">getSection</a></li>
+                            <li><a href="#catalog_getSectionFilter">getSectionFilter</a></li>
+                            <li><a href="#catalog_getSpecial">getSpecial</a></li>
+                            <li><a href="#catalog_getSpecial2">getSpecial2</a></li>
+                            <li><a href="#catalog_getAnalog">getAnalog</a></li>
+                            <li><a href="#catalog_getStocks">getStocks</a></li>
+                            <li><a href="#catalog_getForms">getForms</a></li>
+                            <li><a href="#catalog_getCountStoresByItem">getCountStoresByItem</a></li>
+                            <li><a href="#catalog_addVoteCatalogItem">addVoteCatalogItem</a></li>
+                            <li><a href="#catalog_getCommentsItem">getCommentsItem</a></li>
+                            <li><a href="#catalog_delCommentItem">delCommentItem</a></li>
+                            <li><a href="#catalog_addVoteCatalogItem">addVoteCatalogItem</a></li>
+                            <li><a href="#catalog_updateCommentItem">updateCommentItem</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a href="#logs">Изменения</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="content_area">
+                <div class="methods_list">
+                    <div class="method_item" id="basket">
+                        <h2>Метод basket</h2>
+                        <div class="method_description">
+                            Метод работы с корзиной.<br>
+                            Добавление, удаление, изменение товарной позиции в корзине пользователя.<br>
+                            Корзина пользователя не существует автономно, она связана в обе стороны с корзиной на
+                            сайте.<br>
+                        </div>
+                        <div class="func_list">
+                            <div class="func_wrapper" id="basket_get">
+                                <div class="func_name">get</div>
+                                <div class="func_description">Получает корзину текущего пользователя.</div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/basket/get/</div>
+                                <div class="func_request_params">
+
+                                    PRICE_CODE - тип цены товаров в корзине
+
+                                </div>
+                                <div class="func_response">
+                                    ID - id товара в корзине<br>
+                                    NAME - название товара<br>
+                                    PRODUCT_ID - id товара<br>
+                                    QUANTITY - кол-во<br>
+                                    DELAY - отложен или нет<br>
+                                    CAN_BUY - возможна покупка<br>
+                                    CURRENCY - валюта<br>
+                                    PRICES: {
+                                    <div class="func_response_second">
+                                        BASE_PRICE - цена без скидки<br>
+                                        PRICE - цена со скидкой<br>
+                                        DISCOUNT - сумма скидки<br>
+                                    </div>
+                                    },<br>
+                                    PROPERTY: [] - набор свойств<br>
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="basket_add">
+                                <div class="func_name">add</div>
+                                <div class="func_description">Добавляет товар в корзину для текущего пользователя.
+                                </div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/basket/add/</div>
+                                <div class="func_request_params">
+                                    id_item - id товара<br>
+                                    quantity - кол-во (добавляет)<br>
+                                    PRICE_CODE - тип цены товара<br>
+                                </div>
+                                <div class="func_response">
+                                    BASKET_PRICE_SUM - сумма товаров в корзине с учетом скидок<br>
+                                    BASKET_BASE_PRICE_SUM - сумма товаров в корзине без учета скидок<br>
+                                    BASKET_COUNT - кол-во позиций в корзине<br>
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="basket_del">
+                                <div class="func_name">del</div>
+                                <div class="func_description">Удаляет товар из корзины для текущего пользователя.
+                                </div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/basket/del/</div>
+                                <div class="func_request_params">
+
+                                    id_item - id товара<br>
+                                    PRICE_CODE - тип цены товара<br>
+
+                                </div>
+                                <div class="func_response">
+
+                                    ID - id товара в корзине<br>
+                                    NAME - название товара<br>
+                                    PRODUCT_ID - id товара<br>
+                                    QUANTITY - кол-во<br>
+                                    DELAY - отложен или нет<br>
+                                    CAN_BUY - возможна покупка<br>
+                                    CURRENCY - валюта<br>
+                                    PRICES: {<br>
+                                    <div class="func_response">
+                                        BASE_PRICE - цена без скидки<br>
+                                        PRICE - цена со скидкой<br>
+                                        DISCOUNT - сумма скидки<br>
+                                    </div>
+                                    },<br>
+                                    PROPERTY: [] - набор свойств<br>
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="basket_getSmall">
+                                <div class="func_name">getSmall</div>
+                                <div class="func_description">Получает информацию о корзине для текущего
+                                    пользователя.
+                                </div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/basket/getSmall/</div>
+                                <div class="func_request_params">
+                                    PRICE_CODE - тип цены товара
+                                </div>
+                                <div class="func_response">
+                                    BASKET_PRICE_SUM - сумма товаров в корзине с учетом скидок<br>
+                                    BASKET_BASE_PRICE_SUM - сумма товаров в корзине без учета скидок<br>
+                                    BASKET_COUNT - кол-во позиций в корзине<br>
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="basket_update">
+                                <div class="func_name">update</div>
+                                <div class="func_description">Изменяет количество товара в корзине для текущего
+                                    пользователя.</div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/basket/update/</div>
+                                <div class="func_request_params">
+                                    id_item - id товара<br>
+                                    quantity - количество (изменяет)<br>
+                                    PRICE_CODE - тип цены товара<br>
+                                </div>
+                                <div class="func_response">
+                                    ID - id товара в корзине<br>
+                                    NAME - название товара<br>
+                                    PRODUCT_ID - id товара<br>
+                                    QUANTITY - кол-во<br>
+                                    DELAY - отложен или нет<br>
+                                    CAN_BUY - возможна покупка<br>
+                                    CURRENCY - валюта<br>
+                                    PRICES: {<br>
+                                    <div class="func_response">
+
+                                        BASE_PRICE - цена без скидки<br>
+                                        PRICE - цена со скидкой<br>
+                                        DISCOUNT - сумма скидки<br>
+
+                                    </div>
+                                    },<br>
+                                    PROPERTY: [] - набор свойств<br>
+                                </div>
+                            </div>
+                            <div class="func_wrapper" id="basket_addArray">
+                                <div class="func_name">addArray</div>
+                                <div class="func_description">Перемещает товары из корзины неавторизованного
+                                    пользователя
+                                    в корзину на сервере.<br> <span class="alert">Системная функция, автоматически
+                                        вызывается в момент авторизации пользователя</span>
+                                </div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/basket/addArray/</div>
+                                <div class="func_request_params">
+
+                                    Массив "items" содержащий в себе "id_item" и "quantity"<br>
+                                    PRICE_CODE - тип цены товара<br>
+
+                                </div>
+                                <div class="func_response">
+
+                                    ID - id товара в корзине<br>
+                                    NAME - название товара<br>
+                                    PRODUCT_ID - id товара<br>
+                                    QUANTITY - кол-во<br>
+                                    DELAY - отложен или нет<br>
+                                    CAN_BUY - возможна покупка<br>
+                                    CURRENCY - валюта<br>
+                                    PRICES: {<br>
+                                    <div class="func_response">
+
+                                        BASE_PRICE - цена без скидки<br>
+                                        PRICE - цена со скидкой<br>
+                                        DISCOUNT - сумма скидки<br>
+
+                                    </div>
+                                    },<br>
+                                    PROPERTY: [] - набор свойств<br>
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="basket_getPriceByItems">
+                                <div class="func_name">getPriceByItems</div>
+                                <div class="func_description">Обновляет цены в корзине незарегистрированного
+                                    пользователя
+                                    <span class="alert">Функция устарела, не используется</span>
+                                </div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/basket/getPriceByItems/</div>
+                                <div class="func_request_params">
+
+                                    Массив "items" содержащий в себе "id_item" и "quantity"<br>
+                                    PRICE_CODE - тип цены товара<br>
+
+                                </div>
+                                <div class="func_response">
+
+                                    BASKET_PRICE_SUM - сумма товаров в корзине с учетом скидок<br>
+                                    BASKET_BASE_PRICE_SUM - сумма товаров в корзине без учета скидок<br>
+                                    BASKET_COUNT - кол-во позиций в корзине<br>
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="basket_getItemsFor1Rub">
+                                <div class="func_name">getItemsFor1Rub</div>
+                                <div class="func_description">Получает список товаров за 1 рубль, если такие
+                                    доступны
+                                    текущему пользователю
+                                    <span class="alert">Функция устарела, не используется</span>
+                                </div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/basket/getItemsFor1Rub/</div>
+                                <div class="func_request_params">
+
+                                    PRICE_CODE - тип цены товара<br>
+                                    city_name - название города<br>
+
+                                </div>
+                                <div class="func_response">
+
+                                    DISCOUNT_COUPONS - купоны привязанные к товарам за 1 руб.<br>
+                                    DISCOUNT_ITEMS - список товаров<br>
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="basket_getFavorite">
+                                <div class="func_name">getFavorite</div>
+                                <div class="func_description">Получает список избранных товаров текущего
+                                    пользователя
+                                </div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/basket/getFavorite/</div>
+                                <div class="func_request_params">
+
+                                    PRICE_CODE - тип цены товара
+
+                                </div>
+                                <div class="func_response">
+
+                                    ITEMS - список избранных товаров<br>
+                                    COUNT - общее количество избранных товаров<br>
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="basket_addFavorite">
+                                <div class="func_name">addFavorite</div>
+                                <div class="func_description">Добавляет товар в избранное для текущего пользователя
+                                </div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/basket/addFavorite/</div>
+                                <div class="func_request_params">
+
+                                    PRICE_CODE - тип цены товара<br>
+                                    id_item - id товара<br>
+
+                                </div>
+                                <div class="func_response">
+
+                                    ITEMS - список избранных товаров<br>
+                                    COUNT - общее количество избранных товаров<br>
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="basket_removeFavToBasket">
+                                <div class="func_name">removeFavToBasket</div>
+                                <div class="func_description">Добавляет товар в корзину и удаляет его из избранного
+                                    для
+                                    текущего пользователя</div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/basket/removeFavToBasket/</div>
+                                <div class="func_request_params">
+
+                                    PRICE_CODE - тип цены товара<br>
+                                    id_item - id товара<br>
+
+                                </div>
+                                <div class="func_response">
+
+                                    BASKET_PRICE_SUM - сумма товаров в корзине с учетом скидок<br>
+                                    BASKET_BASE_PRICE_SUM - сумма товаров в корзине без учета скидок<br>
+                                    BASKET_COUNT - кол-во позиций в корзине<br>
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="basket_delFavorite">
+                                <div class="func_name">delFavorite</div>
+                                <div class="func_description">Удаляет товар из избранного для текущего пользователя
+                                </div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/basket/delFavorite/</div>
+                                <div class="func_request_params">
+
+                                    PRICE_CODE - тип цены товара<br>
+                                    id_item - id товара<br>
+
+                                </div>
+                                <div class="func_response">
+
+                                    ITEMS - список избранных товаров<br>
+                                    COUNT - общее количество избранных товаров<br>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="method_item" id="city">
+                        <h2>Метод city</h2>
+                        <div class="method_description">
+                            Метод работы с городами.<br>
+                            Функции настроены на получение и обработки информации по городам.
+                        </div>
+                        <div class="func_list">
+                            <div class="func_wrapper" id="city_get">
+                                <div class="func_name">get</div>
+                                <div class="func_description">Получает данные о городе с типом цены</div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/city/get/</div>
+                                <div class="func_request_params">
+
+                                    id - id города
+
+                                </div>
+                                <div class="func_response">
+
+                                    ID - id города<br>
+                                    NAME - название города<br>
+                                    PROPERTY_TYPE_PRICE - тип цены хранимое в свойстве<br>
+                                    PROPERTY_EXPRESS - разрешена доставка курьером<br>
+                                    PROPERTY_PHONE_SERVICE_VALUE - телефон справочной<br>
+                                    PROPERTY_SERVICE_WORK_TIME_VALUE - время работы справочной<br>
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="city_getList">
+                                <div class="func_name">getList</div>
+                                <div class="func_description">Получает список городов с ценами</div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/city/getList/</div>
+                                <div class="func_request_params">
+                                    <span class="alert">Не принимает параметры на вход</span>
+                                </div>
+                                <div class="func_response">
+
+                                    ID - id города<br>
+                                    NAME - название города<br>
+                                    PROPERTY_TYPE_PRICE - тип цены<br>
+                                    PROPERTY_EXPRESS - разрешена доставка курьером<br>
+                                    PROPERTY_PHONE_SERVICE_VALUE - телефон справочной<br>
+                                    PROPERTY_SERVICE_WORK_TIME_VALUE - время работы справочной<br>
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="city_getList2">
+                                <div class="func_name">getList2</div>
+                                <div class="func_description">Получает список городов с ценами.<br><span>Функция для
+                                        тестирования, была создана для получения всех включая неактивных</span>
+                                </div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/city/getList2/</div>
+                                <div class="func_request_params">
+                                    <span class="alert">Не принимает параметры на вход</span>
+                                </div>
+                                <div class="func_response">
+
+                                    ID - id города<br>
+                                    NAME - название города<br>
+                                    PROPERTY_TYPE_PRICE - тип цены<br>
+                                    PROPERTY_EXPRESS - разрешена доставка курьером<br>
+                                    PROPERTY_PHONE_SERVICE_VALUE - телефон справочной<br>
+                                    PROPERTY_SERVICE_WORK_TIME_VALUE - время работы справочной<br>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="method_item" id="favorite">
+                        <h2>Метод favorite</h2>
+                        <div class="method_description">
+                            Метод работы с избранными аптеками.<br>
+                            Данный метод позволяет получать, удалять, добавлять избранные(любимые) аптеки
+                            пользователя.<br>
+                        </div>
+                        <div class="func_list">
+                            <div class="func_wrapper" id="favorite_delStore">
+                                <div class="func_name">delStore</div>
+                                <div class="func_description">Удаляет аптеку из избранного текущего пользователя
+                                </div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/favorite/delStore/</div>
+                                <div class="func_request_params">
+
+                                    id_store - id склада<br>
+
+                                </div>
+                                <div class="func_response">
+
+                                    ID - id склада<br>
+                                    CITY - город<br>
+                                    AREA - район<br>
+                                    ADDRESS - адрес<br>
+                                    PHONE - телефон<br>
+                                    SCHEDULE - график работы<br>
+                                    DESCRIPTION - описнание<br>
+                                    GPS_N - координаты для карты<br>
+                                    GPS_S - координаты для карты<br>
+                                    EMAIL - электронная почта<br>
+                                    ISSUING_CENTER - доступен интернет заказ<br>
+                                    SHIPPING_CENTER - для отгрузки<br>
+                                    PREVIEW_PICTURE - ссылка на изображение<br>
+                                    SCHEDULE_MONDAY - время работы<br>
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="favorite_addStore">
+                                <div class="func_name">addStore</div>
+                                <div class="func_description">Добавляет аптеку в избранное для текущего
+                                    пользователя
+                                </div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/favorite/addStore/</div>
+                                <div class="func_request_params">
+
+                                    id_store - id склада с которого возможен заказ<br>
+
+                                </div>
+                                <div class="func_response">
+
+                                    ID - id склада<br>
+                                    CITY - город<br>
+                                    AREA - район<br>
+                                    ADDRESS - адрес<br>
+                                    PHONE - телефон<br>
+                                    SCHEDULE - график работы<br>
+                                    DESCRIPTION - описнание<br>
+                                    GPS_N - координаты для карты<br>
+                                    GPS_S - координаты для карты<br>
+                                    EMAIL - электронная почта<br>
+                                    ISSUING_CENTER - доступен интернет заказ<br>
+                                    SHIPPING_CENTER - для отгрузки<br>
+                                    PREVIEW_PICTURE - ссылка на изображение<br>
+                                    SCHEDULE_MONDAY - время работы<br>
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="favorite_getStores">
+                                <div class="func_name">getStores</div>
+                                <div class="func_description">Получить избранные аптеки текущего пользователя
+                                </div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/favorite/getStores/</div>
+                                <div class="func_request_params">
+                                    <span class="alert">Не принимает параметры на вход</span>
+                                </div>
+                                <div class="func_response">
+
+                                    ID - id склада<br>
+                                    CITY - город<br>
+                                    AREA - район<br>
+                                    ADDRESS - адрес<br>
+                                    PHONE - телефон<br>
+                                    SCHEDULE - график работы<br>
+                                    DESCRIPTION - описнание<br>
+                                    GPS_N - координаты для карты<br>
+                                    GPS_S - координаты для карты<br>
+                                    EMAIL - электронная почта<br>
+                                    ISSUING_CENTER - доступен интернет заказ<br>
+                                    SHIPPING_CENTER - для отгрузки<br>
+                                    PREVIEW_PICTURE - ссылка на изображение<br>
+                                    SCHEDULE_MONDAY - время работы<br>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="method_item" id="push">
+                        <h2>Метод push</h2>
+                        <div class="method_description">
+                            Метод работы с токенами push-сообщениями.
+                            Данный метод позволяет удалять и добавлять токены push-сообщений.
+                        </div>
+                        <div class="func_list">
+                            <div class="func_wrapper" id="push_AddToken">
+                                <div class="func_name">AddToken</div>
+                                <div class="func_description">Добаляет(активирует) токен для пушей</div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/push/AddToken/</div>
+                                <div class="func_request_params">
+
+                                    token - код токена<br>
+                                    description - описание(Поддерживает добавление служебной информации для не
+                                    зарегистрированных пользователей)
+
+                                </div>
+                                <div class="func_response">
+
+                                    STATUS - статус операции<br>
+                                    TOKENS - массив токенов<br>
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="push_RemoveToken">
+                                <div class="func_name">RemoveToken</div>
+                                <div class="func_description">Удаляет(деактивирует) токен для пуша</div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/push/RemoveToken/</div>
+                                <div class="func_request_params">
+
+                                    token - код токена
+
+                                </div>
+                                <div class="func_response">
+
+                                    STATUS - статус операции<br>
+                                    TOKENS - массив токенов
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="method_item" id="help">
+                        <h2>Метод help</h2>
+                        <div class="method_description">
+                            Метод работы со статьями, страницами, банерами и формами.
+                        </div>
+                        <div class="func_list">
+                            <div class="func_wrapper" id="help_getFaq">
+                                <div class="func_name">getFaq</div>
+                                <div class="func_description">Добавляет(активирует) токен для пушей</div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/help/getFaq/</div>
+                                <div class="func_request_params">
+
+                                    <span class="alert">Не принимает параметры на вход</span>
+
+                                </div>
+                                <div class="func_response">
+
+                                    question - вопрос<br>
+                                    answer - ответ
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="help_getAgreementsList">
+                                <div class="func_name">getAgreementsList</div>
+                                <div class="func_description">Получает все пользовательские соглашения</div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/help/getAgreementsList/
+                                </div>
+                                <div class="func_request_params">
+
+                                    button_caption - текст кнопки при нажатии на которую пользователь соглашается.<br>
+                                    Значение по умолчанию: "Отправить"
+
+                                </div>
+                                <div class="func_response">
+
+                                    id - id записи<br>
+                                    name - название<br>
+                                    input_label - надпись пользовательского соглашения<br>
+                                    checked (false/true) - по умолчанию должен быть отмечен<br>
+                                    user_checked - принял ли пользователь соглашение (при параметре Authorization-Token)
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="help_getAgreement">
+                                <div class="func_name">getAgreement</div>
+                                <div class="func_description">Получает текст соглашения</div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/help/getAgreement/</div>
+                                <div class="func_request_params">
+
+                                    id - идентификатор соглашения
+
+                                </div>
+                                <div class="func_response">
+
+                                    text - текст соглашения. Разрешены теги p,b,img,i,blockquote,h1,h2,h3,ul,ol,li
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="help_getContentHowToOrder">
+                                <div class="func_name">getContentHowToOrder</div>
+                                <div class="func_description">Получает информацию: Как сделать заказ</div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/help/getContentHowToOrder/
+                                </div>
+                                <div class="func_request_params">
+
+                                    ios - операционная система устройства пользователя является ios. Если Y - будет взят
+                                    контент специально для iOS
+
+                                </div>
+                                <div class="func_response">
+
+                                    text - текст соглашения. Разрешены теги p,b,img,i,blockquote,h1,h2,h3,ul,ol,li
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="help_getContentAbout">
+                                <div class="func_name">getContentAbout</div>
+                                <div class="func_description">Получает информацию: О компании <span>Функция для
+                                        тестирования, была создана для тестового задания</span></div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/help/getContentAbout/</div>
+                                <div class="func_request_params">
+
+                                    ios - операционная система устройства пользователя является ios. Если Y - будет взят
+                                    контент специально для iOS
+
+                                </div>
+                                <div class="func_response">
+
+                                    text - текст соглашения. Разрешены теги p,b,img,i,blockquote,h1,h2,h3,ul,ol,li
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="help_getContentBanner">
+                                <div class="func_name">getContentBanner</div>
+                                <div class="func_description">Получает информацию: Баннеры <span>Функция для
+                                        тестирования, была создана для тестового задания</span></div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/help/getContentBanner/</div>
+                                <div class="func_request_params">
+
+                                    ios - операционная система устройства пользователя является ios. Если Y - будет взят
+                                    контент специально для iOS
+
+                                </div>
+                                <div class="func_response">
+
+                                    text - текст соглашения. Разрешены теги p,b,img,i,blockquote,h1,h2,h3,ul,ol,li
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="help_getContentPaymentAndReceiptOrder">
+                                <div class="func_name">getContentPaymentAndReceiptOrder</div>
+                                <div class="func_description">Получает информацию: Оплата и получение заказа
+                                </div>
+                                <div class="func_request_link"><b>Путь:</b>
+                                    /api/v1/help/getContentPaymentAndReceiptOrder/</div>
+                                <div class="func_request_params">
+
+                                    ios - операционная система устройства пользователя является ios. Если Y - будет взят
+                                    контент специально для iOS
+
+                                </div>
+                                <div class="func_response">
+
+                                    text - текст соглашения. Разрешены теги p,b,img,i,blockquote,h1,h2,h3,ul,ol,li
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="help_postQuestionPharmacist">
+                                <div class="func_name">postQuestionPharmacist</div>
+                                <div class="func_description">Отправляет вопрос фармацевту</div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/help/postQuestionPharmacist/
+                                </div>
+                                <div class="func_request_params">
+
+                                    name - имя<br>
+                                    phone - телефон<br>
+                                    text - текст сообщения<br>
+                                    email - email
+
+                                </div>
+                                <div class="func_response">
+
+                                    RESULT - массив с результатами
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="help_postRequestCallback">
+                                <div class="func_name">postRequestCallback</div>
+                                <div class="func_description">Отправляет обратный звонок</div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/help/postRequestCallback/
+                                </div>
+                                <div class="func_request_params">
+
+                                    name - имя<br>
+                                    phone - телефон
+
+                                </div>
+                                <div class="func_response">
+
+                                    RESULT - массив с результатами
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="help_getSupport">
+                                <div class="func_name">getSupport</div>
+                                <div class="func_description">Получает время работы и телефон интернет-аптеки
+                                </div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/help/getSupport/</div>
+                                <div class="func_request_params">
+
+                                    <span class="alert">Не принимает параметры на вход</span>
+
+                                </div>
+                                <div class="func_response">
+
+                                    work_time - время работы<br>
+                                    phone - телефон
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="help_getBanners">
+                                <div class="func_name">getBanners</div>
+                                <div class="func_description">Получает баннеры</div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/help/getBanners/</div>
+                                <div class="func_request_params">
+
+                                    city - фильтр по названию города<br>
+                                    size_width - ширина банера px (обязательно при size_height). Изменяет размер
+                                    банеров<br>
+                                    и возвращает его данные. Не создает новое изображение если размер больше оригинала
+                                    size_height - высота банера px (обязательно при size_width). Изменяет размер
+                                    банеров<br>
+                                    и возвращает его данные. Не создает новое изображение если размер больше оригинала
+
+                                </div>
+                                <div class="func_response">
+
+                                    name - название<br>
+                                    picture: {<br>
+                                    <div class="func_response">
+
+                                        src<br>
+                                        width<br>
+                                        height<br>
+
+                                    </div>
+                                    }, - объект изображения<br>
+                                    type - тип ссылки банера. section - ссылка ведет на раздел, item - ссылка ведет на
+                                    товар, <br>
+                                    query - строка запроса для экрана детальные результаты поиска,<br>
+                                    article - ссылка ведет на статью, если null<br>
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="help_getBanners2">
+                                <div class="func_name">getBanners2</div>
+                                <div class="func_description">Получает баннеры <span class="alert">Тестовая
+                                        функция</span></div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/help/getBanners2/</div>
+                                <div class="func_request_params">
+
+                                    city - фильтр по названию города<br>
+                                    size_width - ширина банера px (обязательно при size_height). Изменяет размер банеров
+                                    и возвращает его данные.<br> Не создает новое изображение если размер больше
+                                    оригинала<br>
+                                    size_height - высота банера px (обязательно при size_width). Изменяет размер банеров
+                                    и возвращает его данные.<br> Не создает новое изображение если размер больше
+                                    оригинала<br>
+
+                                </div>
+                                <div class="func_response">
+                                    name - название<br>
+                                    picture: {<br>
+                                    <div class="func_response">
+
+                                        src<br>
+                                        width<br>
+                                        height<br>
+
+                                    </div>
+                                    }, - объект изображения<br>
+                                    type - тип ссылки банера. section - ссылка ведет на раздел,<br>
+                                    item - ссылка ведет на товар,<br>
+                                    query - строка запроса для экрана детальные результаты поиска,<br>
+                                    article - ссылка ведет на статью, если null<br>
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="help_getArticlesList">
+                                <div class="func_name">getArticlesList</div>
+                                <div class="func_description">Получает список статей</div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/help/getArticlesList/</div>
+                                <div class="func_request_params">
+
+                                    <span class="alert">Не принимает параметры на вход</span>
+
+                                </div>
+                                <div class="func_response">
+
+                                    name - название<br>
+                                    picture: {<br>
+                                    <div class="func_response">
+
+                                        src<br>
+                                        width<br>
+                                        height<br>
+
+                                    </div>
+                                    } - объект изображения<br>
+                                    text - текст анонса<br>
+                                    date - дата публикации<br>
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="help_getNotifications">
+                                <div class="func_name">getNotifications</div>
+                                <div class="func_description">Получает список уведомлений пользователя</div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/help/getNotifications/</div>
+                                <div class="func_request_params">
+
+                                    PHONE - номер телефона
+
+                                </div>
+                                <div class="func_response">
+
+                                    DATE - дата уведомления<br>
+                                    TEXT - текст сообщения
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="help_getArticle">
+                                <div class="func_name">getArticle</div>
+                                <div class="func_description">Получает текст статьи</div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/help/getArticle/</div>
+                                <div class="func_request_params">
+
+                                    id - идентификатор статьи
+
+                                </div>
+                                <div class="func_response">
+
+                                    name - название<br>
+                                    text - детальный текст. Разрешены теги p,b,img,i,blockquote,h1,h2,h3,ul,ol,li><br>
+                                    date - дата публикации
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="method_item" id="user">
+                        <h2>Метод user</h2>
+                        <div class="method_description">
+                            Метод работы с пользователями: регистрация, авторизация, обновление, удаление
+                            пользователя.<br> Получение и отправка кодов авторизации.
+                        </div>
+                        <div class="func_list">
+                            <div class="func_wrapper" id="user_changePhone">
+                                <div class="func_name">changePhone</div>
+                                <div class="func_description">Изменяет номер телефона</div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/help/changePhone/</div>
+                                <div class="func_request_params">
+
+                                    PERSONAL_PHONE - номер телефона<br>
+                                    code - высланный в смс код подтверждения
+
+                                </div>
+                                <div class="func_response">
+
+                                    TITLE - ФИО (обращение)<br>
+                                    NAME - имя<br>
+                                    LAST_NAME - фамилия<br>
+                                    SECOND_NAME - отчество<br>
+                                    EMAIL - элемктронная почта<br>
+                                    PERSONAL_PHONE - номер телефона<br>
+                                    LOGIN - логин<br>
+                                    UF_GUL_SUBME - подписан ли на новости<br>
+                                    UF_BUY_1_RUB - покупал ли товар за 1 руб (при первом заказе с мобильного
+                                    устройства)<br>
+                                    consents - список соглашений пользователя<br>
+                                    STATUS (true/false)<br>
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="user_sendCodeChangePhone">
+                                <div class="func_name">sendCodeChangePhone</div>
+                                <div class="func_description">Отправляет смс с кодом подтверждения для изменения
+                                    номера телефона</div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/help/sendCodeChangePhone/
+                                </div>
+                                <div class="func_request_params">
+
+                                    PERSONAL_PHONE - номер телефона
+
+                                </div>
+                                <div class="func_response">
+
+                                    TITLE - ФИО (обращение)<br>
+                                    NAME - имя<br>
+                                    LAST_NAME - фамилия<br>
+                                    SECOND_NAME - отчество<br>
+                                    EMAIL - элемктронная почта<br>
+                                    PERSONAL_PHONE - номер телефона<br>
+                                    LOGIN - логин<br>
+                                    UF_GUL_SUBME - подписан ли на новости<br>
+                                    UF_BUY_1_RUB - покупал ли товар за 1 руб (при первом заказе с мобильного
+                                    устройства)<br>
+                                    consents - список соглашений пользователя<br>
+                                    STATUS (true/false)
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="user_sendCodeRecoveryPassword">
+                                <div class="func_name">sendCodeRecoveryPassword</div>
+                                <div class="func_description">Отправляет смс с кодом подтверждения для
+                                    восстановления пароля</div>
+                                <div class="func_request_link"><b>Путь:</b>
+                                    /api/v1/help/sendCodeRecoveryPassword/
+                                </div>
+                                <div class="func_request_params">
+
+                                    PERSONAL_PHONE - номер телефона
+
+                                </div>
+                                <div class="func_response">
+
+                                    STATUS (true/false)
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="user_recoveryPassword">
+                                <div class="func_name">recoveryPassword</div>
+                                <div class="func_description">Изменяет забытый пароль</div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/help/recoveryPassword/</div>
+                                <div class="func_request_params">
+
+                                    PERSONAL_PHONE - номер телефона<br>
+                                    code - высланный в смс код подтверждения
+
+                                </div>
+                                <div class="func_response">
+
+                                    TITLE - ФИО (обращение)<br>
+                                    NAME - имя<br>
+                                    LAST_NAME - фамилия<br>
+                                    SECOND_NAME - отчество<br>
+                                    EMAIL - элемктронная почта<br>
+                                    PERSONAL_PHONE - номер телефона<br>
+                                    LOGIN - логин<br>
+                                    UF_GUL_SUBME - подписан ли на новости<br>
+                                    UF_BUY_1_RUB - покупал ли товар за 1 руб (при первом заказе с мобильного
+                                    устройства)<br>
+                                    consents - список соглашений пользователя<br>
+                                    Authorization-Token - токен авторизации<br>
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="user_sendCodeRegister">
+                                <div class="func_name">sendCodeRegister</div>
+                                <div class="func_description">Отправляет смс с кодом подтверждения номера
+                                    телефона
+                                </div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/help/sendCodeRegister/</div>
+                                <div class="func_request_params">
+
+                                    PERSONAL_PHONE - номер телефона
+
+                                </div>
+                                <div class="func_response">
+
+                                    STATUS (true/false)
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="user_CheckReg">
+                                <div class="func_name">CheckReg</div>
+                                <div class="func_description">Проверяет зарегистрирован ли пользователь по
+                                    логину
+                                </div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/help/CheckReg/</div>
+                                <div class="func_request_params">
+
+                                    PHONE - номер телефона
+
+                                </div>
+                                <div class="func_response">
+
+                                    isReg(YES, NO)
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="user_register">
+                                <div class="func_name">register</div>
+                                <div class="func_description">Регистрирует нового пользователя</div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/help/register/</div>
+                                <div class="func_request_params">
+
+                                    TITLE - ФИО (обращение)<br>
+                                    NAME - имя<br>
+                                    LAST_NAME - фамилия<br>
+                                    SECOND_NAME - отчество<br>
+                                    PERSONAL_PHONE - номер телефона<br>
+                                    EMAIL - электронная почта<br>
+                                    UF_GUL_SUBME - подписаться на новости (Y/N)<br>
+                                    code - высланный в смс код подтверждения<br>
+                                    id_consents - массив id пользовательских соглашений<br>
+
+                                </div>
+                                <div class="func_response">
+
+                                    TITLE - ФИО (обращение)<br>
+                                    NAME - имя<br>
+                                    LAST_NAME - фамилия<br>
+                                    SECOND_NAME - отчество<br>
+                                    EMAIL - электронная почта<br>
+                                    PERSONAL_PHONE - номер телефона<br>
+                                    LOGIN - логин<br>
+                                    UF_GUL_SUBME - подписан ли на новости,<br>
+                                    UF_BUY_1_RUB - покупал ли товар за 1 руб (при первом заказе с мобильного
+                                    устройства)<br>
+                                    Authorization-Token - токен авторизации<br>
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="user_authorization">
+                                <div class="func_name">authorization</div>
+                                <div class="func_description">Авторизирует пользователя. Проверяет логин: для
+                                    пользователей сайта или номер телефона - для мобильных пользователей;
+                                    пароль.
+                                </div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/help/authorization/</div>
+                                <div class="func_request_params">
+
+                                    <span class="alert">Не принимает параметры на вход</span>
+
+                                </div>
+                                <div class="func_response">
+
+                                    Код авторизации (token). Все последующие запросы требующие идентификации должны
+                                    содержать token
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="user_update">
+                                <div class="func_name">update</div>
+                                <div class="func_description">Изменяет пользовательские данные </div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/help/update/</div>
+                                <div class="func_request_params">
+
+                                    TITLE - ФИО (обращение)<br>
+                                    NAME - имя<br>
+                                    LAST_NAME - фамилия<br>
+                                    SECOND_NAME - отчество<br>
+                                    EMAIL - электронная почта<br>
+                                    UF_GUL_SUBME - подписаться на новости (Y/N)<br>
+
+                                </div>
+                                <div class="func_response">
+
+                                    TITLE - ФИО (обращение)<br>
+                                    NAME - имя<br>
+                                    LAST_NAME - фамилия<br>
+                                    SECOND_NAME - отчество<br>
+                                    EMAIL - элемктронная почта<br>
+                                    PERSONAL_PHONE - номер телефона<br>
+                                    LOGIN - логин<br>
+                                    UF_GUL_SUBME - подписан ли на новости<br>
+                                    UF_BUY_1_RUB - покупал ли товар за 1 руб (при первом заказе с мобильного
+                                    устройства)<br>
+                                    consents - список соглашений пользователя<br>
+                                    STATUS (true/false)<br>
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="user_get">
+                                <div class="func_name">get</div>
+                                <div class="func_description">Получает данные пользователя</div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/help/get/</div>
+                                <div class="func_request_params">
+
+                                    <span class="alert">Не принимает параметры на вход</span>
+
+                                </div>
+                                <div class="func_response">
+
+                                    TITLE - ФИО (обращение),<br>
+                                    NAME - имя<br>
+                                    LAST_NAME - фамилия<br>
+                                    SECOND_NAME - отчество<br>
+                                    EMAIL - электронная почта<br>
+                                    PERSONAL_PHONE - номер телефона<br>
+                                    LOGIN - логин<br>
+                                    UF_GUL_SUBME - подписан ли на новости<br>
+                                    UF_BUY_1_RUB - покупал ли товар за 1 руб (при первом заказе с мобильного
+                                    устройства)<br>
+                                    consents - список соглашений<br>
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="user_getGroupPolicy">
+                                <div class="func_name">getGroupPolicy</div>
+                                <div class="func_description">Получает политики безопасности</div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/help/getGroupPolicy/</div>
+                                <div class="func_request_params">
+
+                                    <span class="alert">Не принимает параметры на вход</span>
+
+                                </div>
+                                <div class="func_response">
+
+                                    PASSWORD_REQUIREMENTS - текст требования безопасности пароля
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="method_item" id="store">
+                        <h2>Метод store</h2>
+                        <div class="method_description">
+                            Метод работы с аптеками: получение и работа с данными.
+                        </div>
+                        <div class="func_list">
+                            <div class="func_wrapper" id="store_getListAll">
+                                <div class="func_name">getListAll</div>
+                                <div class="func_description">Получает список всех аптек</div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/help/getListAll/</div>
+                                <div class="func_request_params">
+
+                                    buy='Y' - получить только аптеки для заказа
+
+                                </div>
+                                <div class="func_response">
+
+                                    ID - id аптеки<br>
+                                    CITY - город<br>
+                                    AREA - район<br>
+                                    ADDRESS - адрес<br>
+                                    PHONE - номер телефона<br>
+                                    SCHEDULE - график работы<br>
+                                    DESCRIPTION - описание<br>
+                                    GPS_N - координаты для карты<br>
+                                    GPS_S - координаты для карты<br>
+                                    EMAIL - электронная почта<br>
+                                    ISSUING_CENTER - доступен интернет заказ<br>
+                                    PREVIEW_PICTURE - ссылка на изображение<br>
+                                    SCHEDULE_MONDAY - время работы<br>
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="store_getListInCity">
+                                <div class="func_name">getListInCity</div>
+                                <div class="func_description">Получает список аптек в городе</div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/help/getListInCity/</div>
+                                <div class="func_request_params">
+
+                                    city_name - название города<br>
+                                    buy='Y' - получить только аптеки для заказа
+
+                                </div>
+                                <div class="func_response">
+
+                                    ID - id аптеки<br>
+                                    CITY - город<br>
+                                    AREA - район<br>
+                                    ADDRESS - адрес<br>
+                                    PHONE - номер телефона<br>
+                                    SCHEDULE - график работы<br>
+                                    DESCRIPTION - описание<br>
+                                    GPS_N - координаты для карты<br>
+                                    GPS_S - координаты для карты<br>
+                                    EMAIL - электронная почта<br>
+                                    ISSUING_CENTER - доступен интернет заказ<br>
+                                    PREVIEW_PICTURE - ссылка на изображение<br>
+                                    SCHEDULE_MONDAY - время работы<br>
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="store_get">
+                                <div class="func_name">get</div>
+                                <div class="func_description">Получает данные аптеки</div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/help/get/</div>
+                                <div class="func_request_params">
+
+                                    id_store- id склада
+
+                                </div>
+                                <div class="func_response">
+
+                                    ID - id аптеки<br>
+                                    CITY - город<br>
+                                    AREA - район<br>
+                                    ADDRESS - адрес<br>
+                                    PHONE - номер телефона<br>
+                                    SCHEDULE - график работы<br>
+                                    DESCRIPTION - описание<br>
+                                    GPS_N - координаты для карты<br>
+                                    GPS_S - координаты для карты<br>
+                                    EMAIL - электронная почта<br>
+                                    ISSUING_CENTER - доступен интернет заказ<br>
+                                    PREVIEW_PICTURE - ссылка на изображение<br>
+                                    SCHEDULE_MONDAY - время работы<br>
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="store_getArray">
+                                <div class="func_name">getArray</div>
+                                <div class="func_description">Получает данные аптек</div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/help/getArray/</div>
+                                <div class="func_request_params">
+
+                                    "stores" : [2,5] - где 2,5 идентификаторы аптек<br>
+
+                                </div>
+                                <div class="func_response">
+
+                                    ID - id аптеки<br>
+                                    CITY - город<br>
+                                    AREA - район<br>
+                                    ADDRESS - адрес<br>
+                                    PHONE - номер телефона<br>
+                                    SCHEDULE - график работы<br>
+                                    DESCRIPTION - описание<br>
+                                    GPS_N - координаты для карты<br>
+                                    GPS_S - координаты для карты<br>
+                                    EMAIL - электронная почта<br>
+                                    ISSUING_CENTER - доступен интернет заказ<br>
+                                    PREVIEW_PICTURE - ссылка на изображение<br>
+                                    SCHEDULE_MONDAY - время работы<br>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="method_item" id="secret">
+                        <h2>Метод secret</h2>
+                        <div class="method_description">
+                            Содержит в себе системные функции для работы с email сообщениями и скидками. Не
+                            рекомендуется использовать указанные функции напрямую.
+                        </div>
+                        <div class="func_list">
+                            <div class="func_wrapper" id="secret_getDiscounts">
+                                <div class="func_name">getDiscounts</div>
+                                <div class="func_description">Получает список всех активных на данный момент
+                                    скидок
+                                </div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/secret/getDiscounts/</div>
+                                <div class="func_request_params">
+
+                                    <span class="alert">Не принимает параметры на вход</span>
+
+                                </div>
+                                <div class="func_response">
+
+                                    ID - id скидки<br>
+                                    NAME - наименование скидки<br>
+                                    ACTIVE_TO - активность с<br>
+                                    ACTIVE_FROM - активность до<br>
+                                    DISCOUNT_ID_1C - 1c id<br>
+                                    DISCOUNT_VALUE - значение скидки<br>
+                                    TYPE_PRICE - тип цены<br>
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="secret_sendMessageOrderAvailabilityChanged">
+                                <div class="func_name">sendMessageOrderAvailabilityChanged</div>
+                                <div class="func_description">Отправляет email письмо об изменение даты
+                                    готовности
+                                    заказа</div>
+                                <div class="func_request_link"><b>Путь:</b>
+                                    /api/v1/secret/sendMessageOrderAvailabilityChanged/</div>
+                                <div class="func_request_params">
+
+                                    order_id - id заказа<br>
+                                    new_date - новая дата готовности
+
+                                </div>
+                                <div class="func_response">
+
+                                    DATA - возращает id записи в таблицы событий
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="secret_sendMessageOrderPartIsReady">
+                                <div class="func_name">sendMessageOrderPartIsReady</div>
+                                <div class="func_description">Отправляет email письмо о частичной готовности
+                                    заказа
+                                </div>
+                                <div class="func_request_link"><b>Путь:</b>
+                                    /api/v1/secret/sendMessageOrderPartIsReady/</div>
+                                <div class="func_request_params">
+
+                                    order_id - id заказа<br>
+                                    xml_items - список готовых товаров
+
+                                </div>
+                                <div class="func_response">
+
+                                    DATA - возращает id записи в таблицы событий
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="secret_sendMessageClient">
+                                <div class="func_name">sendMessageClient</div>
+                                <div class="func_description">Отправляет viber/sms сообщение пользователю</div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/secret/sendMessageClient/
+                                </div>
+                                <div class="func_request_params">
+
+                                    phone - номер телефона<br>
+                                    message - сообщение
+
+                                </div>
+                                <div class="func_response">
+
+                                    DATA - результат отправки сообщения
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="method_item" id="search">
+                        <h2>Метод search</h2>
+                        <div class="method_description">
+                            Содержит набор функций для работы с поисковой строкой в мобильном приложении.
+                        </div>
+                        <div class="func_list">
+                            <div class="func_wrapper" id="search_getSearchHints">
+                                <div class="func_name">getSearchHints</div>
+                                <div class="func_description">Получить поисковые подсказки</div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/search/getSearchHints/</div>
+                                <div class="func_request_params">
+
+                                    <span class="alert">Не принимает параметры на вход</span>
+
+                                </div>
+                                <div class="func_response">
+
+                                    TITLE - выводимый текст<br>
+                                    SELECT - текст по которому происходит поиск. Если пусто используется TITLE
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="search_getDetail">
+                                <div class="func_name">getDetail</div>
+                                <div class="func_description">Получить результат поиска товаров</div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/search/getDetail/</div>
+                                <div class="func_request_params">
+
+                                    PRICE_CODE - тип цены<br>
+                                    q - поисковый запрос<br>
+                                    city_name - название города<br>
+                                    brands - искать только по брендам (массив)<br>
+                                    sections - искать только по id разделов 2 уровня (массив)<br>
+
+                                </div>
+                                <div class="func_response">
+
+                                    ITEMS - массив товарных позиций<br>
+                                    FILTER - массив данных для фильтра<br>
+                                    FILTER[SECTION] - список разделов в которых найдены товары с кол-вом позиций<br>
+                                    FILTER[BRAND] - список брендов в найденых товарах с кол-вом позиций<br>
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="search_get">
+                                <div class="func_name">get</div>
+                                <div class="func_description">Получить товары в строке поиска <span
+                                        class="alert">Функция устрела, вместо нее используется getDetail</span>
+                                </div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/search/get/</div>
+                                <div class="func_request_params">
+
+                                    q - строка поиска (минимальная длина 3 символов)
+
+                                </div>
+                                <div class="func_response">
+
+                                    ITEM_ID - id товара<br>
+                                    NAME - название
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="search_getStoresByFilter">
+                                <div class="func_name">getStoresByFilter</div>
+                                <div class="func_description">Получить список аптек для фильтра по наличию в
+                                    аптеках
+                                </div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/search/getStoresByFilter/
+                                </div>
+                                <div class="func_request_params">
+
+                                    city_name - название города
+
+                                </div>
+                                <div class="func_response">
+
+                                    stores - список аптек<br>
+                                    FAVORITE - массив id любимых аптек выбранного города (для зарегистрированного
+                                    пользователя)
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="method_item" id="order">
+                        <h2>Метод order</h2>
+                        <div class="method_description">
+                            Содержит функции добавления, изменения и получения информации по заказу.
+                        </div>
+                        <div class="func_list">
+                            <div class="func_wrapper" id="order_addForOrderDeliveryCourier">
+                                <div class="func_name">addForOrderDeliveryCourier</div>
+                                <div class="func_description">Создает заказ с доставкой курьером <span
+                                        class="alert">Функция не используется</span></div>
+                                <div class="func_request_link"><b>Путь:</b>
+                                    /api/v1/order/addForOrderDeliveryCourier/</div>
+                                <div class="func_request_params">
+
+                                    PRICE_CODE - тип цены<br>
+                                    FIO - ФИО<br>
+                                    PHONE - телефон<br>
+                                    EMAIL - электронная почта<br>
+                                    USER_DESCRIPTION - комментарий покупателя<br>
+                                    ADDRESS - адрес доставки (автозаполнение, использовать сервис https://dadata.ru)<br>
+                                    DATE_DELIVERY - дата доставки<br>
+                                    TIMEOUT_DELIVERY - время доставки
+
+                                </div>
+                                <div class="func_response">
+
+                                    MESSAGE - текст сообщения при успешном оформлении заказов<br>
+                                    ORDERS - данные о сделанных заказах<br>
+                                    BASKET - данные текущей корзины<br>
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="order_addFor2Orders">
+                                <div class="func_name">addFor2Orders</div>
+                                <div class="func_description">Создает заказ (с разделением)</div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/order/addFor2Orders/</div>
+                                <div class="func_request_params">
+
+                                    PRICE_CODE - тип цены<br>
+                                    FIO - ФИО<br>
+                                    PHONE - телефон<br>
+                                    ID_STORE - id аптеки<br>
+                                    EMAIL - электронная почта<br>
+                                    USER_DESCRIPTION - комментарий покупателя<br>
+
+                                </div>
+                                <div class="func_response">
+
+                                    MESSAGE - текст сообщения при успешном оформлении заказов<br>
+                                    ORDERS - данные о сделанных заказах
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="order_add">
+                                <div class="func_name">add</div>
+                                <div class="func_description">Создает заказ</div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/order/add/</div>
+                                <div class="func_request_params">
+
+                                    PRICE_CODE - тип цены<br>
+                                    FIO - ФИО<br>
+                                    PHONE - телефон<br>
+                                    ID_STORE - id аптеки для самовывоза<br>
+                                    TIME_DELIVERY - предполагаемое время готовности<br>
+                                    EMAIL - электронная почта<br>
+                                    USER_DESCRIPTION - комментарий покупателя
+
+                                </div>
+                                <div class="func_response">
+
+                                    MESSAGE - текст сообщения при успешном оформлении заказов<br>
+                                    ORDERS - данные о сделанных заказах
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="order_getDataItemsBy2Orders">
+                                <div class="func_name">getDataItemsBy2Orders</div>
+                                <div class="func_description">Получает информацию по товарам в выбранной аптеке
+                                    которые можно забрать раньше</div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/order/getDataItemsBy2Orders/
+                                </div>
+                                <div class="func_request_params">
+
+                                    ID_STORE - id аптеки<br>
+                                    PRICE_CODE - тип цены
+
+                                </div>
+                                <div class="func_response">
+
+                                    TIMEOUT_TEXT - текст времени готовности заказа с товарами которые можно будет
+                                    забрать раньше<br>
+                                    DATE_FOR_ONE_ORDER - дата готовности заказа если не разбивать заказ<br>
+                                    ORDER1 - данные по товарам которые можно забрать раньше<br>
+                                    ORDER0 - данные по товарам которые<br>
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="order_getDateIsReadyStores">
+                                <div class="func_name">getDateIsReadyStores</div>
+                                <div class="func_description">Получает список аптек с датой готовности заказа
+                                </div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/order/getDateIsReadyStores/
+                                </div>
+                                <div class="func_request_params">
+
+                                    city_name - название города<br>
+                                    favorite(Y) - выбрать только из любимых аптек
+
+                                </div>
+                                <div class="func_response">
+
+                                    ID - id аптеки<br>
+                                    CITY - город<br>
+                                    AREA - район<br>
+                                    ADDRESS - адрес<br>
+                                    PHONE - номер телефона<br>
+                                    SCHEDULE - график работы<br>
+                                    DESCRIPTION - описание<br>
+                                    GPS_N - координаты для карты<br>
+                                    GPS_S - координаты для карты<br>
+                                    EMAIL - электронная почта<br>
+                                    ISSUING_CENTER - доступен интернет заказ<br>
+                                    PREVIEW_PICTURE - ссылка на изображение<br>
+                                    SCHEDULE_MONDAY - время работы<br>
+                                    AVAILABLE - дата доступности заказа<br>
+                                    2ORDERS(Y/N) - возможно ли забрать заказ раньше в данной аптеке<br>
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="order_repeat">
+                                <div class="func_name">repeat</div>
+                                <div class="func_description">Повторяет выбранный пользователем заказ</div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/order/repeat/</div>
+                                <div class="func_request_params">
+
+                                    id_order - номер заказа<br>
+                                    PRICE_CODE - тип цены
+
+                                </div>
+                                <div class="func_response">
+
+                                    ID - id товара в корзине<br>
+                                    NAME - название товара<br>
+                                    PRODUCT_ID - id товара<br>
+                                    QUANTITY - кол-во<br>
+                                    DELAY - отложен или нет<br>
+                                    CAN_BUY - возможна покупка<br>
+                                    CURRENCY - валюта<br>
+                                    PRICES: {<br>
+                                    <div class="func_response">
+
+                                        BASE_PRICE - цена без скидки<br>
+                                        PRICE - цена со скидкой<br>
+                                        DISCOUNT - сумма скидки<br>
+
+                                    </div>
+                                    },<br>
+                                    PROPERTY: [] - набор свойств<br>
+                                    ITEMS_NO_REPEAT - товары которые не доступны для покупки<br>
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="order_getReasonsCancel">
+                                <div class="func_name">getReasonsCancel</div>
+                                <div class="func_description">Получает список причин отказа от заказа</div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/order/getReasonsCancel/
+                                </div>
+                                <div class="func_request_params">
+
+                                    <span class="alert">Не принимает параметры на вход</span>
+
+                                </div>
+                                <div class="func_response">
+
+                                    reasons - список причин отказа заказа. Предоставляется выбор пользователю.<br>Если
+                                    не
+                                    выбран - может написать свою причину
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="order_cancel">
+                                <div class="func_name">cancel</div>
+                                <div class="func_description">Отменяет заказ</div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/order/cancel/</div>
+                                <div class="func_request_params">
+
+                                    id_order - номер заказа<br>
+                                    reason_canceled - текст причины отказа<br>
+                                    reason_id - идентификатор причины отказа<br>
+
+                                </div>
+                                <div class="func_response">
+
+                                    STATUS - статус заказа<br>
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="order_get">
+                                <div class="func_name">get</div>
+                                <div class="func_description">Получает краткую историю заказов</div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/order/get/</div>
+                                <div class="func_request_params">
+
+                                    status - статус заказа
+
+                                </div>
+                                <div class="func_response">
+
+                                    ID - id заказа<br>
+                                    STATUS_NAME - статус<br>
+                                    DATE_INSERT - дата создания<br>
+                                    PRICE - сумма<br>
+                                    CANCELED - отменен<br>
+                                    DATE_CANCELED - дата отмены заказа<br>
+                                    DELIVERY_NAME - служба доставки<br>
+                                    BASKET_COUNT - кол-во позиций<br>
+                                    TIME_DELIVERY - время готовности<br>
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="order_getDetail">
+                                <div class="func_name">getDetail</div>
+                                <div class="func_description">Получает детальную информацию о заказе</div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/order/getDetail/</div>
+                                <div class="func_request_params">
+
+                                    id_order - номер заказа
+
+                                </div>
+                                <div class="func_response">
+
+                                    ID - id заказа<br>
+                                    STATUS_NAME - статус<br>
+                                    DATE_INSERT - дата создания<br>
+                                    CANCELED - отменен<br>
+                                    REASON_CANCELED - причина отмены<br>
+                                    BASKET_PRICE_SUM - сумма заказа,<br>
+                                    BASKET_BASE_PRICE_SUM - сумма заказа без скидок<br>
+                                    USER_DESCRIPTION - комментарий пользователя<br>
+                                    DATE_CANCELED - дата отмены<br>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="method_item" id="catalog">
+                        <h2>Метод catalog</h2>
+                        <div class="method_description">
+                            Содержит функции получения разделов и элементов, работает с отзывами, оценками и
+                            фильтрами.
+                        </div>
+                        <div class="func_list">
+                            <div class="func_wrapper" id="catalog_getSet">
+                                <div class="func_name">getSet</div>
+                                <div class="func_description">Получает содержимое группы</div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/catalog/getSet/</div>
+                                <div class="func_request_params">
+
+                                    id - идентификатор группы<br>
+                                    PRICE_CODE - тип цены
+
+                                </div>
+                                <div class="func_response">
+
+                                    SECTIONS - массив данных разделов с товарами<br>
+                                    ITEMS - список товаров
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="catalog_getSetsList">
+                                <div class="func_name">getSetsList</div>
+                                <div class="func_description">Получает список групп товаров</div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/catalog/getSetsList/</div>
+                                <div class="func_request_params">
+
+                                    size_width - ширина банера px (обязательно при size_height). Изменяет размер банеров
+                                    и возвращает его данные. <br>Не создает новое изображение если размер больше
+                                    оригинала
+                                    size_height - высота банера px (обязательно при size_width)<br>
+
+                                </div>
+                                <div class="func_response">
+
+                                    id - идентификатор группы,<br>
+                                    name - название,
+                                    picture: {<br>
+                                    <div class="func_response">
+
+                                        src<br>
+                                        width<br>
+                                        height<br>
+
+                                    </div>
+                                    } - объект изображения<br>
+                                    text - текст анонса<br>
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="catalog_getSectionList">
+                                <div class="func_name">getSectionList</div>
+                                <div class="func_description">Получает список разделов каталога</div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/catalog/getSectionList/
+                                </div>
+                                <div class="func_request_params">
+
+                                    PRICE_CODE - тип цены (необходим для непоказа разделов в которых нет товаров этого
+                                    типа цены)<br>
+                                    SECTION_ID - id каталога родителя<br>
+                                    TOP_DEPTH - глубина уровней<br>
+
+                                </div>
+                                <div class="func_response">
+
+                                    ID - id раздела<br>
+                                    IBLOCK_ID - id инфоблока<br>
+                                    DEPTH_LEVEL - уровень вложенности<br>
+                                    NAME - название<br>
+                                    ELEMENT_CNT - количество товаров<br>
+                                    ITEMS - список товаров раздела<br>
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="catalog_getAvailableItemInStores">
+                                <div class="func_name">getAvailableItemInStores</div>
+                                <div class="func_description">Получает доступное количество товара в аптеках
+                                    выбранного города </div>
+                                <div class="func_request_link"><b>Путь:</b>
+                                    /api/v1/catalog/getAvailableItemInStores/</div>
+                                <div class="func_request_params">
+
+                                    city - название города<br>
+                                    id_item - id товара<br>
+
+                                </div>
+                                <div class="func_response">
+
+                                    STORES - список аптек<br>
+                                    DATE_CHANGE - на какое время актуальны данные<br>
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="catalog_getElement">
+                                <div class="func_name">getElement</div>
+                                <div class="func_description">Получает информацию о товаре</div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/catalog/getElement/</div>
+                                <div class="func_request_params">
+
+                                    ELEMENT_ID - id товара,<br>
+                                    PRICE_CODE - тип цены<br>
+                                    city - название города<br>
+
+                                </div>
+                                <div class="func_response">
+
+                                    OFFERS - для товара с предложением<br>
+                                    ID - id товара<br>
+                                    NAME - название<br>
+                                    PICTURE - детальное изображение,<br>
+                                    DISPLAY_PROPERTIES - отображаемые свойства<br>
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="catalog_getElementTest">
+                                <div class="func_name">getElementTest</div>
+                                <div class="func_description">Получает информацию о товаре(возвращает 1 торговое
+                                    предложение) <span class="alert">Тестовая функция</span></div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/catalog/getElement/</div>
+                                <div class="func_request_params">
+
+                                    ELEMENT_ID - id товара,<br>
+                                    PRICE_CODE - тип цены<br>
+                                    city - название города<br>
+
+                                </div>
+                                <div class="func_response">
+
+                                    OFFERS - для товара с предложением<br>
+                                    ID - id товара<br>
+                                    NAME - название<br>
+                                    PICTURE - детальное изображение,<br>
+                                    DISPLAY_PROPERTIES - отображаемые свойства<br>
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="catalog_getOfferByFilterTest">
+                                <div class="func_name">getOfferByFilterTest</div>
+                                <div class="func_description">Получает торговые предложения по опредленным
+                                    критериям
+                                    <span class="alert">Тестовая функция</span>
+                                </div>
+                                <div class="func_request_link"><b>Путь:</b>
+                                    /api/v1/catalog/getOfferByFilterTest/
+                                </div>
+                                <div class="func_request_params">
+
+                                    ELEMENT_ID - id товара,<br>
+                                    PRICE_CODE - тип цены<br>
+                                    filter_offers - набор параметров для фильтрации<br>
+
+                                </div>
+                                <div class="func_response">
+
+                                    OFFERS - для товара с предложением<br>
+                                    ID - id товара<br>
+                                    NAME - название<br>
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="catalog_getRecommendByIdItem">
+                                <div class="func_name">getRecommendByIdItem</div>
+                                <div class="func_description">Получает рекомендованные товары у товара</div>
+                                <div class="func_request_link"><b>Путь:</b>
+                                    /api/v1/catalog/getRecommendByIdItem/
+                                </div>
+                                <div class="func_request_params">
+
+                                    ELEMENT_ID - id товара,<br>
+                                    PRICE_CODE - тип цены
+
+                                </div>
+                                <div class="func_response">
+
+                                    ITEMS - для простого товара<br>
+                                    OFFERS - для товара с торговыми предложениями<br>
+                                    ID - id товара<br>
+                                    NAME - название<br>
+                                    PICTURE - изображение анонса<br>
+                                    DISPLAY_PROPERTIES - набор отображаемых свойств<br>
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="catalog_getSection">
+                                <div class="func_name">getSection</div>
+                                <div class="func_description">Получает список товаров каталога</div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/catalog/getSection/</div>
+                                <div class="func_request_params">
+
+                                    PRICE_CODE - тип цены<br>
+                                    ELEMENT_SORT_FIELD - поле для сортировки<br>
+                                    ELEMENT_SORT_ORDER - порядок сортировки<br>
+                                    PAGE_ELEMENT_COUNT - кол-во выводимых элементов<br>
+                                    PAGEN - страница (навигация)<br>
+                                    SECTION_ID - id раздела<br>
+                                    city - название города<br>
+
+                                </div>
+                                <div class="func_response">
+
+                                    ITEMS - для простого товара<br>
+                                    OFFERS - для товара с торговыми предложениями<br>
+                                    ID - id товара<br>
+                                    NAME - название<br>
+                                    PICTURE - изображение анонса<br>
+                                    DISPLAY_PROPERTIES - набор отображаемых свойств<br>
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="catalog_getSectionFilter">
+                                <div class="func_name">getSectionFilter</div>
+                                <div class="func_description">Получает поля фильтра</div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/catalog/getSectionFilter/
+                                </div>
+                                <div class="func_request_params">
+
+                                    PRICE_CODE - тип цены<br>
+                                    SECTION_ID - id раздела
+
+                                </div>
+                                <div class="func_response">
+
+                                    ITEMS - для простого товара<br>
+                                    OFFERS - для товара с торговыми предложениями<br>
+                                    ID - id товара<br>
+                                    NAME - название<br>
+                                    PICTURE - изображение анонса<br>
+                                    DISPLAY_PROPERTIES - набор отображаемых свойств<br>
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="catalog_getSpecial">
+                                <div class="func_name">getSpecial</div>
+                                <div class="func_description">Получает список специальных предложений</div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/catalog/getSpecial/</div>
+                                <div class="func_request_params">
+
+                                    ELEMENT_SORT_FIELD - поле для сортировки<br>
+                                    ELEMENT_SORT_ORDER - порядок сортировки<br>
+                                    PRICE_CODE - тип цены<br>
+
+                                </div>
+                                <div class="func_response">
+
+                                    ITEMS - для простого товара<br>
+                                    OFFERS - для товара с торговыми предложениями<br>
+                                    ID - id товара<br>
+                                    NAME - название<br>
+                                    PICTURE - изображение анонса<br>
+                                    DISPLAY_PROPERTIES - набор отображаемых свойств<br>
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="catalog_getSpecial2">
+                                <div class="func_name">getSpecial2</div>
+                                <div class="func_description">Получает список специальных предложений(Вывод
+                                    отложен
+                                    на 10 секунд) <span class="alert">Тестовая функция</span></div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/catalog/getSpecial2/</div>
+                                <div class="func_request_params">
+
+                                    ELEMENT_SORT_FIELD - поле для сортировки<br>
+                                    ELEMENT_SORT_ORDER - порядок сортировки<br>
+                                    PRICE_CODE - тип цены<br>
+
+                                </div>
+                                <div class="func_response">
+
+                                    ITEMS - для простого товара<br>
+                                    OFFERS - для товара с торговыми предложениями<br>
+                                    ID - id товара<br>
+                                    NAME - название<br>
+                                    PICTURE - изображение анонса<br>
+                                    DISPLAY_PROPERTIES - набор отображаемых свойств<br>
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="catalog_getAnalog">
+                                <div class="func_name">getAnalog</div>
+                                <div class="func_description">Получает аналогичные товары</div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/catalog/getAnalog/</div>
+                                <div class="func_request_params">
+
+                                    name - название<br>
+                                    PRICE_CODE - тип цены<br>
+                                    not_id - исключить из поиска товар с id<br>
+                                    section_id - id раздела товара<br>
+
+                                </div>
+                                <div class="func_response">
+
+                                    ITEMS - для простого товара<br>
+                                    OFFERS - для товара с торговыми предложениями<br>
+                                    ID - id товара<br>
+                                    NAME - название<br>
+                                    PICTURE - изображение анонса<br>
+                                    DISPLAY_PROPERTIES - набор отображаемых свойств<br>
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="catalog_getStocks">
+                                <div class="func_name">getStocks</div>
+                                <div class="func_description">Получает акционные товары</div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/catalog/getStocks/</div>
+                                <div class="func_request_params">
+
+                                    name - название<br>
+                                    PRICE_CODE - тип цены<br>
+                                    not_id - исключить из поиска товар с id<br>
+                                    section_id - id раздела товара<br>
+
+                                </div>
+                                <div class="func_response">
+
+                                    ITEMS - для простого товара<br>
+                                    OFFERS - для товара с торговыми предложениями<br>
+                                    ID - id товара<br>
+                                    NAME - название<br>
+                                    PICTURE - изображение анонса<br>
+                                    DISPLAY_PROPERTIES - набор отображаемых свойств<br>
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="catalog_getForms">
+                                <div class="func_name">getForms</div>
+                                <div class="func_description">Получает формы выпуска товара</div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/catalog/getForms/</div>
+                                <div class="func_request_params">
+
+                                    name_en - строка транслит формы выпуска<br>
+                                    PRICE_CODE - тип цены
+
+                                </div>
+                                <div class="func_response">
+
+                                    ITEMS - для простого товара<br>
+                                    OFFERS - для товара с торговыми предложениями<br>
+                                    ID - id товара<br>
+                                    NAME - название<br>
+                                    PICTURE - изображение анонса<br>
+                                    DISPLAY_PROPERTIES - набор отображаемых свойств<br>
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="catalog_getCountStoresByItem">
+                                <div class="func_name">getCountStoresByItem</div>
+                                <div class="func_description">Получает количество аптек для покупки товара либо
+                                    дату
+                                    доступности в выбранном городе</div>
+                                <div class="func_request_link"><b>Путь:</b>
+                                    /api/v1/catalog/getCountStoresByItem/
+                                </div>
+                                <div class="func_request_params">
+
+                                    city - название города<br>
+                                    id_item - id товара
+
+                                </div>
+                                <div class="func_response">
+
+                                    кол-во аптек либо дату доступности
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="catalog_addVoteCatalogItem">
+                                <div class="func_name">addVoteCatalogItem</div>
+                                <div class="func_description">Выставляет оценку товару</div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/catalog/addVoteCatalogItem/
+                                </div>
+                                <div class="func_request_params">
+
+                                    ELEMENT_ID - id товара<br>
+                                    rating - оценка (не более 5)
+
+                                </div>
+                                <div class="func_response">
+
+                                    vote_count - кол-во оценок<br>
+                                    vote_sum - сумма оценок<br>
+                                    rating - рейтинг<br>
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="catalog_getCommentsItem">
+                                <div class="func_name">getCommentsItem</div>
+                                <div class="func_description">Получает отзывы о товаре</div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/catalog/getCommentsItem/
+                                </div>
+                                <div class="func_request_params">
+
+                                    ELEMENT_ID - id товара
+
+                                </div>
+                                <div class="func_response">
+
+                                    NUM_COMMENTS - количество отзывов<br>
+                                    COMMENTS - отзывы<br>
+                                    AUTHOR_NAME - имя автора анонимного комментария<br>
+                                    USER_NAME - имя автора неанонимного комментария<br>
+                                    user_edit - пользователь может отредактировать сообщение или удалить<br>
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="catalog_addCommentItem">
+                                <div class="func_name">addCommentItem</div>
+                                <div class="func_description">Добавляет отзыв о товаре</div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/catalog/addCommentItem/
+                                </div>
+                                <div class="func_request_params">
+
+                                    ELEMENT_ID - id товара<br>
+                                    text - текст сообщения<br>
+                                    title - заголовок сообщения
+
+                                </div>
+                                <div class="func_response">
+
+                                    NUM_COMMENTS - количество отзывов<br>
+                                    COMMENTS - отзывы<br>
+                                    AUTHOR_NAME - имя автора анонимного комментария<br>
+                                    USER_NAME - имя автора неанонимного комментария<br>
+                                    user_edit - пользователь может отредактировать сообщение или удалить
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="catalog_delCommentItem">
+                                <div class="func_name">delCommentItem</div>
+                                <div class="func_description">Удаляет отзыв о товаре</div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/catalog/delCommentItem/
+                                </div>
+                                <div class="func_request_params">
+
+                                    id - отзыва
+
+                                </div>
+                                <div class="func_response">
+
+                                    RESULT - результат работы
+
+                                </div>
+                            </div>
+
+                            <div class="func_wrapper" id="catalog_updateCommentItem">
+                                <div class="func_name">updateCommentItem</div>
+                                <div class="func_description">Удаляет отзыв о товаре</div>
+                                <div class="func_request_link"><b>Путь:</b> /api/v1/catalog/updateCommentItem/
+                                </div>
+                                <div class="func_request_params">
+
+                                    id - отзыва<br>
+                                    text - текст сообщения<br>
+                                    title - заголовок сообщения<br>
+
+                                </div>
+                                <div class="func_response">
+
+                                    RESULT - результат работы
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="logs" id="logs">
+                        <h2>Изменения версий</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="footer" style="display: none;">
+    </div>
+</body>
+
+<!-- скрипты -->
+<script src="../assets/js/base/main.js"></script>
+<script src="../assets/js/pages/api.js"></script>
+
+</html>
