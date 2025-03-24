@@ -32,9 +32,7 @@
     --font-size-medium: 20px;
     --font-size-large: 26px;
 
-    --api-padding-left-1: 10px;
-    --api-padding-left-2: 20px;
-    --api-padding-left-3: 30px;
+    --api-padding-left: 10px;
 }
 
 /* endregion constants */

@@ -3,15 +3,22 @@ var select = [
     { value: "https://appstoreconnect.apple.com/apps/1478551285/distribution/ios", label: "App Store" },
     { value: "https://global.developer.mi.com/distribute/app/list", label: "GetApps" },
     { value: "https://play.google.com/console/u/1/developers/7994947562696594600/app/4973903313446474675/app-dashboard?timespan=thirtyDays", label: "PlayMarket" },
-    { value: "https://seller.samsungapps.com/content/common/summaryContentList.as", label: "Samsung Store" },
     { value: "https://console.rustore.ru/apps/2063570438", label: "RuStore" },
-
+    { value: "https://seller.samsungapps.com/content/common/summaryContentList.as", label: "Samsung Store" },
 ]
 
 function containerSelectUpdate() {
     let baseIconUrl = "https://s2.googleusercontent.com/s2/favicons?domain_url=";
     select.forEach(function (item) {
-        let iconUrl = baseIconUrl + item.value;
+        let iconUrl;
+        if (item.label === "RuStore") {
+            iconUrl = baseIconUrl + "https://www.rustore.ru/";
+        } else if (item.label === "Samsung Store") {
+            iconUrl = baseIconUrl + "https://www.samsungstore.ru/";
+        } else {
+            iconUrl = baseIconUrl + item.value;
+        }
+        
         $(".selecter").append(`<div class="selecter-select unselect"><img title="` + item.label + `" src="` + iconUrl + `" alt="` + item.label + `" /><span>` + item.label + `</span></div>`);
     });
 }
