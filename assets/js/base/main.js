@@ -11,8 +11,8 @@ function updateFooter() {
   let info = [
     { label: "Developer", content: "Чернышев Евгений" },
     { label: "Company", content: "ФАРМЭКОНОМ" },
-    { label: "Version", content: "3.5" },
-    { label: "Date update", content: "24.03.2025" },
+    { label: "Version", content: "3.7" },
+    { label: "Date update", content: "25.03.2025" },
   ];
 
   info.forEach(function (item) {
